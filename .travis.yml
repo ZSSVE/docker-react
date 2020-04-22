@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t zhaoshuosve/docker-react -f Dockerfile.dev .
+
+
+scripts:
+  - docker run -e CI=tru zhaoshuosve/docker-react npm run test -- --coverage
